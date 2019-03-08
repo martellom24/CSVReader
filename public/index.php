@@ -38,32 +38,36 @@ class html {
                 $array = $record->returnArray();
                 $fields = array_keys($array);
                 $values = array_values($array);
-                print_r($fields) . "<br>";
-                print_r($values);
+                //print_r($fields) . "<br>";
+                //print_r($values);
+                $html .= '<th>' . htmlspecialchars($fields[0]) . '</th>';
+                $html .= '<th>' . htmlspecialchars($fields[1]) . '</th>';
+                $html .= '<th>' . htmlspecialchars($fields[2]) . '</th>';
+                $html .= '<th>' . htmlspecialchars($fields[3]) . '</th>';
 
             } else {
                 $array = $record->returnArray();
                 $values = array_values($array);
-                print_r($values);
+                //print_r($values);
             }
             $count++;
         }
         $html .= '</tr>';
 
         // header row
-        $html .= '<tr>';
-        foreach($array[0] as $key=>$value){
-            $html .= '<th>' . htmlspecialchars($key) . '</th>';
-        }
-        
+        //$html .= '<tr>';
+        //foreach($array[0] as $key=>$value){
+
+        //}
+
         // data rows
-        foreach( $array as $key=>$value){
-            $html .= '<tr>';
-            foreach($value as $key2=>$value2){
-                $html .= '<td>' . htmlspecialchars($value2) . '</td>';
-            }
-            $html .= '</tr>';
-        }
+        // foreach( $array as $key=>$value){
+        //    $html .= '<tr>';
+        //    foreach($value as $key2=>$value2){
+        //        $html .= '<td>' . htmlspecialchars($value2) . '</td>';
+        //    }
+        //    $html .= '</tr>';
+        //}
 
         $html .= '</table>';
         return $html;
