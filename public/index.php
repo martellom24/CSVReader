@@ -70,7 +70,7 @@ class html {
         //}
 
         $html .= '</table>';
-        return $html;
+        echo $html;
 
     }
 }
