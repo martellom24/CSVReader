@@ -32,7 +32,7 @@ class html {
                 $array = $record->returnArray();
                 $fields = array_keys($array);
                 $values = array_values($array);
-                print_r($fields);
+                print_r($fields) . "<br>";
                 print_r($values);
 
             } else {
@@ -109,9 +109,6 @@ class recordFactory {
         $record = new record($fieldNames, $values);
 
         return $record;
-
-        echo "Hello World";
-        echo "hello second";
 
     }
 }
