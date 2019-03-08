@@ -110,6 +110,8 @@ class recordFactory {
 
         return $record;
 
+        echo "Hello World";
+
     }
 }
 
