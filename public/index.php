@@ -31,7 +31,7 @@ class html {
         $html = '<table>';
 
         // header row
-        $html .= '<tr>';
+        $html .= '<thead><tr>';
 
         foreach ($records as $record) {
 
@@ -53,8 +53,8 @@ class html {
             }
             $count++;
         }
-        $html .= '</tr>';
-        $html .= '<tr>';
+        $html .= '</thead></tr>';
+        $html .= '<tbody><tr>';
 
         foreach ($records as $key) {
 
@@ -78,7 +78,7 @@ class html {
         //    }
         //    $html .= '</tr>';
         //}
-
+        $html .= '</tr></tbody>';
         $html .= '</table>';
         echo $html;
 
