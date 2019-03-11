@@ -30,7 +30,6 @@ class html {
         // start table
         $html = '<table class="table table-striped border my-5">';
 
-        // table header "th's"
         foreach ($records as $record) {
 
             if($count == 0) {
@@ -49,31 +48,23 @@ class html {
 
             } else {
                 $array = $record->returnArray();
-                $fields = array_keys($array);
-               // print_r($fields);
+                $values = array_values($array);
+                //print_r($values);
             }
             $count++;
         }
 
-        // table data "td's"
         foreach( $records as $key=>$value ){
 
-            //if($count == 0) {
-                $html .= '<tbody><tr>';
+            $html .= '<tbody><tr>';
 
-                $array = $value->returnArray();
-                $values = array_values($array);
+            $array = $value->returnArray();
+            $values = array_values($array);
 
-                foreach ($values as $key2 => $value2) {
-                    $html .= '<td>' . htmlspecialchars($value2) . '</td>';
-                }
-                $html .= '</tr></tbody>';
-            //} else {
-                $array = $value->returnArray();
-                $values = array_values($array);
-                // print_r($values);
-           // }
-           // $count++;
+            foreach($values as $key2=>$value2){
+                $html .= '<td>' . htmlspecialchars($value2) . '</td>';
+            }
+            $html .= '</tr></tbody>';
         }
 
         $html .= '</table>';
