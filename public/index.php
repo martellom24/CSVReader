@@ -28,7 +28,7 @@ class html {
         $count = 0;
 
         // start table
-        $html = '<table class="table table-striped my-5">';
+        $html = '<table class="table table-responsive table-striped my-5">';
 
         // header row
         $html .= '<thead class="thead-dark"><tr>';
@@ -39,7 +39,6 @@ class html {
 
                 $array = $record->returnArray();
                 $fields = array_keys($array);
-                $values = array_values($array);
 
                 $html .= '<th scope="col">' . htmlspecialchars($fields[0]) . '</th>';
                 $html .= '<th scope="col">' . htmlspecialchars($fields[1]) . '</th>';
@@ -54,22 +53,8 @@ class html {
             }
             $count++;
         }
-        $html .= '</thead></tr>';
-        $html .= '<tbody>';
 
-//        foreach ($records as $key) {
-//
-//            $array = $key->returnArray();
-//            $values = array_values($array);
-//
-//            // print_r($values);
-//
-//            $html .= '<td>' . htmlspecialchars($values[0]) . '</td>';
-//            $html .= '<td>' . htmlspecialchars($values[1]) . '</td>';
-//            $html .= '<td>' . htmlspecialchars($values[2]) . '</td>';
-//            $html .= '<td>' . htmlspecialchars($values[3]) . '</td>';
-//
-//        }
+        $html .= '</thead></tr><tbody>';
 
         foreach( $records as $key=>$value ){
             $html .= '<tr>';
@@ -83,8 +68,7 @@ class html {
             $html .= '</tr>';
         }
 
-        $html .= '</tbody>';
-        $html .= '</table>';
+        $html .= '</tbody></table>';
         echo $html;
 
         include 'includes/footer.html';
