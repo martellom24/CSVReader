@@ -50,7 +50,7 @@ class html {
             } else {
                 $array = $record->returnArray();
                 $fields = array_keys($array);
-                print_r($fields);
+               // print_r($fields);
             }
             $count++;
         }
@@ -58,7 +58,7 @@ class html {
         // table data "td's"
         foreach( $records as $key=>$value ){
 
-            if($count == 0) {
+            //if($count == 0) {
                 $html .= '<tbody><tr>';
 
                 $array = $value->returnArray();
@@ -68,12 +68,12 @@ class html {
                     $html .= '<td>' . htmlspecialchars($value2) . '</td>';
                 }
                 $html .= '</tr></tbody>';
-            } else {
+            //} else {
                 $array = $value->returnArray();
                 $values = array_values($array);
-                print_r($values);
-            }
-            $count++;
+                // print_r($values);
+           // }
+           // $count++;
         }
 
         $html .= '</table>';
