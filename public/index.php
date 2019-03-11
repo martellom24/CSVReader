@@ -40,11 +40,16 @@ class html {
                 $array = $record->returnArray();
                 $fields = array_keys($array);
 
-                $html .= '<th scope="col">' . htmlspecialchars($fields[0]) . '</th>';
-                $html .= '<th scope="col">' . htmlspecialchars($fields[1]) . '</th>';
-                $html .= '<th scope="col">' . htmlspecialchars($fields[2]) . '</th>';
-                $html .= '<th scope="col">' . htmlspecialchars($fields[3]) . '</th>';
-                $html .= '<th scope="col">' . htmlspecialchars($fields[4]) . '</th>';
+                foreach ( $fields as $key=>$values) {
+                    $html .= '<th scope="col">' . htmlspecialchars($values) . '</th>';
+                }
+
+
+//                $html .= '<th scope="col">' . htmlspecialchars($fields[0]) . '</th>';
+//                $html .= '<th scope="col">' . htmlspecialchars($fields[1]) . '</th>';
+//                $html .= '<th scope="col">' . htmlspecialchars($fields[2]) . '</th>';
+//                $html .= '<th scope="col">' . htmlspecialchars($fields[3]) . '</th>';
+//                $html .= '<th scope="col">' . htmlspecialchars($fields[4]) . '</th>';
 
             } else {
                 $array = $record->returnArray();
