@@ -28,7 +28,7 @@ class html {
         $count = 0;
 
         // start table
-        $html = '<table class="table table-striped">';
+        $html = '<table class="table table-striped my-5">';
 
         // header row
         $html .= '<thead class="thead-dark"><tr>';
