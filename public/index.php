@@ -25,6 +25,8 @@ class html {
 
         $count = 0;
 
+
+
         // start table
         $html = '<table>';
 
@@ -37,6 +39,7 @@ class html {
 
                 $array = $record->returnArray();
                 $fields = array_keys($array);
+                $values = array_values($array);
 
                 $html .= '<th>' . htmlspecialchars($fields[0]) . '</th>';
                 $html .= '<th>' . htmlspecialchars($fields[1]) . '</th>';
@@ -50,12 +53,16 @@ class html {
             }
             $count++;
         }
-        $html .= '</tr><tr>';
+        $html .= '</tr>';
+        $html .= '<tr>';
 
         foreach ($records as $key) {
+
+            $array = $key->returnArray();
             $values = array_values($array);
 
             $html .= '<td>' . htmlspecialchars($values) . '</td>';
+
         }
         // header row
         //$html .= '<tr>';
