@@ -73,6 +73,7 @@ class html {
                 $values = array_values($array);
                 print_r($values);
             }
+            $count++;
         }
 
         $html .= '</table>';
