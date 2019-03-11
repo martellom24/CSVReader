@@ -54,36 +54,35 @@ class html {
             $count++;
         }
         $html .= '</thead></tr>';
-        $html .= '<tbody><tr>';
+        $html .= '<tbody>';
 
-        foreach ($records as $key) {
+//        foreach ($records as $key) {
+//
+//            $array = $key->returnArray();
+//            $values = array_values($array);
+//
+//            // print_r($values);
+//
+//            $html .= '<td>' . htmlspecialchars($values[0]) . '</td>';
+//            $html .= '<td>' . htmlspecialchars($values[1]) . '</td>';
+//            $html .= '<td>' . htmlspecialchars($values[2]) . '</td>';
+//            $html .= '<td>' . htmlspecialchars($values[3]) . '</td>';
+//
+//        }
 
-            $array = $key->returnArray();
+        foreach( $records as $key=>$value ){
+            $html .= '<tr>';
+
+            $array = $value->returnArray();
             $values = array_values($array);
 
-            // print_r($values);
-
-            $html .= '<td>' . htmlspecialchars($values[0]) . '</td>';
-            $html .= '<td>' . htmlspecialchars($values[1]) . '</td>';
-            $html .= '<td>' . htmlspecialchars($values[2]) . '</td>';
-            $html .= '<td>' . htmlspecialchars($values[3]) . '</td>';
-
+            foreach($values as $key2=>$value2){
+                $html .= '<td>' . htmlspecialchars($value2) . '</td>';
+            }
+            $html .= '</tr>';
         }
-        // header row
-        //$html .= '<tr>';
-        //foreach($array[0] as $key=>$value){
 
-        //}
-
-        // data rows
-        // foreach( $array as $key=>$value){
-        //    $html .= '<tr>';
-        //    foreach($value as $key2=>$value2){
-        //        $html .= '<td>' . htmlspecialchars($value2) . '</td>';
-        //    }
-        //    $html .= '</tr>';
-        //}
-        $html .= '</tr></tbody>';
+        $html .= '</tbody>';
         $html .= '</table>';
         echo $html;
 
