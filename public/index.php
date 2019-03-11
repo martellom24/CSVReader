@@ -61,7 +61,12 @@ class html {
             $array = $key->returnArray();
             $values = array_values($array);
 
-            $html .= '<td>' . htmlspecialchars($values) . '</td>';
+            // print_r($values);
+
+            $html .= '<td>' . htmlspecialchars($values[0]) . '</td>';
+            $html .= '<td>' . htmlspecialchars($values[1]) . '</td>';
+            $html .= '<td>' . htmlspecialchars($values[2]) . '</td>';
+            $html .= '<td>' . htmlspecialchars($values[3]) . '</td>';
 
         }
         // header row
