@@ -30,12 +30,13 @@ class html {
         // start table
         $html = '<table class="table table-striped border my-5">';
 
-        // header row
-        $html .= '<thead class="thead-dark"><tr>';
-
+        // table header "th's"
         foreach ($records as $record) {
 
             if($count == 0) {
+
+                // header row
+                $html .= '<thead class="thead-dark"><tr>';
 
                 $array = $record->returnArray();
                 $fields = array_keys($array);
@@ -44,36 +45,37 @@ class html {
                     $html .= '<th scope="col">' . htmlspecialchars($values) . '</th>';
                 }
 
-
-//                $html .= '<th scope="col">' . htmlspecialchars($fields[0]) . '</th>';
-//                $html .= '<th scope="col">' . htmlspecialchars($fields[1]) . '</th>';
-//                $html .= '<th scope="col">' . htmlspecialchars($fields[2]) . '</th>';
-//                $html .= '<th scope="col">' . htmlspecialchars($fields[3]) . '</th>';
-//                $html .= '<th scope="col">' . htmlspecialchars($fields[4]) . '</th>';
+                $html .= '</tr></thead>';
 
             } else {
                 $array = $record->returnArray();
-                $values = array_values($array);
-                //print_r($values);
+                $fields = array_keys($array);
+                print_r($fields);
             }
             $count++;
         }
 
-        $html .= '</thead></tr><tbody>';
-
+        // table data "td's"
         foreach( $records as $key=>$value ){
-            $html .= '<tr>';
 
-            $array = $value->returnArray();
-            $values = array_values($array);
+            if($count == 0) {
+                $html .= '<tbody><tr>';
 
-            foreach($values as $key2=>$value2){
-                $html .= '<td>' . htmlspecialchars($value2) . '</td>';
+                $array = $value->returnArray();
+                $values = array_values($array);
+
+                foreach ($values as $key2 => $value2) {
+                    $html .= '<td>' . htmlspecialchars($value2) . '</td>';
+                }
+                $html .= '</tr></tbody>';
+            } else {
+                $array = $value->returnArray();
+                $values = array_values($array);
+                print_r($values);
             }
-            $html .= '</tr>';
         }
 
-        $html .= '</tbody></table>';
+        $html .= '</table>';
         echo $html;
 
         include 'includes/footer.html';
