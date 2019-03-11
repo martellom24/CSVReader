@@ -28,10 +28,10 @@ class html {
         $count = 0;
 
         // start table
-        $html = '<table>';
+        $html = '<table class="table table-striped">';
 
         // header row
-        $html .= '<thead><tr>';
+        $html .= '<thead class="thead-dark"><tr>';
 
         foreach ($records as $record) {
 
@@ -41,10 +41,10 @@ class html {
                 $fields = array_keys($array);
                 $values = array_values($array);
 
-                $html .= '<th>' . htmlspecialchars($fields[0]) . '</th>';
-                $html .= '<th>' . htmlspecialchars($fields[1]) . '</th>';
-                $html .= '<th>' . htmlspecialchars($fields[2]) . '</th>';
-                $html .= '<th>' . htmlspecialchars($fields[3]) . '</th>';
+                $html .= '<th scope="col">' . htmlspecialchars($fields[0]) . '</th>';
+                $html .= '<th scope="col">' . htmlspecialchars($fields[1]) . '</th>';
+                $html .= '<th scope="col">' . htmlspecialchars($fields[2]) . '</th>';
+                $html .= '<th scope="col">' . htmlspecialchars($fields[3]) . '</th>';
 
             } else {
                 $array = $record->returnArray();
