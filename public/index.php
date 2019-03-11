@@ -23,9 +23,9 @@ class html {
 
     public static function generateTable($records) {
 
+        include 'includes/header.html';
+
         $count = 0;
-
-
 
         // start table
         $html = '<table>';
@@ -86,6 +86,7 @@ class html {
         $html .= '</table>';
         echo $html;
 
+        include 'includes/footer.html';
     }
 }
 
