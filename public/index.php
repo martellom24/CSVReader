@@ -45,6 +45,7 @@ class html {
                 $html .= '<th scope="col">' . htmlspecialchars($fields[1]) . '</th>';
                 $html .= '<th scope="col">' . htmlspecialchars($fields[2]) . '</th>';
                 $html .= '<th scope="col">' . htmlspecialchars($fields[3]) . '</th>';
+                $html .= '<th scope="col">' . htmlspecialchars($fields[4]) . '</th>';
 
             } else {
                 $array = $record->returnArray();
