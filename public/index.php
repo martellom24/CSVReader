@@ -54,9 +54,11 @@ class html {
             $count++;
         }
 
+        $html .= '<tbody><tr>';
+
         foreach( $records as $key=>$value ){
 
-            $html .= '<tbody><tr>';
+
 
             $array = $value->returnArray();
             $values = array_values($array);
@@ -64,9 +66,9 @@ class html {
             foreach($values as $key2=>$value2){
                 $html .= '<td>' . htmlspecialchars($value2) . '</td>';
             }
-            $html .= '</tr></tbody>';
-        }
 
+        }
+        $html .= '</tr></tbody>';
         $html .= '</table>';
         echo $html;
 
